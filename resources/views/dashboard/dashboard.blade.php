@@ -1,0 +1,19 @@
+@extends('layouts.admin')
+
+@section('content')
+
+
+    <h1>Bootstrap grid examples</h1>
+    <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+
+    <h3>Five grid tiers</h3>
+    <p>There are five tiers to the Bootstrap grid system, one for each range of devices we support. Each tier starts at a minimum viewport size and automatically applies to the larger devices unless overridden.</p>
+
+    <div class="row">
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+    </div>
+
+
+@endsection
