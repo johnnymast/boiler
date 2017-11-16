@@ -56,6 +56,7 @@
 
             <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
+                    {!! $system_menu->asUl() !!}
                     @if ($sidemenu)
                         @foreach ($sidemenu as $item)
                             <li class="list-group-item"><a @if(isset($item['route']) && !empty($item['route']))href="{{route($item['route'])}}" @else href="{{url($item['url'])}}" @endif title="{{$item['title']}}">{{$item['label']}}</a></li>
