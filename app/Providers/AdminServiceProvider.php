@@ -18,6 +18,7 @@ class AdminServiceProvider extends ServiceProvider
         SystemMenu::add('Users', route('users.index'))
             ->add('Logout', url('logout'));
 
+        echo 'done';
         View::composer('*', function($view)
         {
             $view->with('sidemenu', SystemMenu::toArray());
