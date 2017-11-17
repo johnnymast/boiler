@@ -181,7 +181,7 @@ return [
          * Admin service provider
          */
         \App\Providers\AdminServiceProvider::class,
-        \App\Providers\SystemMenuProvider::class,
+        \App\Providers\MenuProvider::class,
     ],
 
     /*
@@ -230,7 +230,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'SystemMenu' => \App\Facades\SystemMenu::class,
+        'SystemMenu' => \App\Facades\Menu::class,
     ],
 
 ];

@@ -12777,3 +12777,8 @@ a.text-dark:hover {
   padding-bottom: 1rem;
 }
 
+.sidemenu a.active {
+  font-weight: bold;
+  color: #000000;
+}
+

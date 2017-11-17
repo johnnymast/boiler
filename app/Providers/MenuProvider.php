@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
+use App\Classes\Menu\Builder;
 use Illuminate\Support\ServiceProvider;
 
-class SystemMenuProvider extends ServiceProvider
+class MenuProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -23,8 +24,8 @@ class SystemMenuProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('system_menu', function ($app) {
-            return new \App\Classes\SystemMenu();
+        $this->app->singleton('menu', function ($app) {
+            return new Builder();
         });
     }
 }

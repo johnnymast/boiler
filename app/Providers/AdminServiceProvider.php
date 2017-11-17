@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\Facades\SystemMenu;
+use App\Classes\Menu\MenuItem;
+use App\Facades\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -15,13 +16,17 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        SystemMenu::add('Users', route('users.index'))
+        //Menu::add('Users', route('users.index'))
+        //    ->add('Logout', url('logout'));
+
+        Menu::make('package');
+        Menu::make('system', 1)
+            ->add('Users', route('users.index'))
             ->add('Logout', url('logout'));
 
-        echo 'done';
         View::composer('*', function($view)
         {
-            $view->with('sidemenu', SystemMenu::toArray());
+            $view->with('sidemenus', Menu::getMenus());
         });
 
         \Illuminate\Pagination\AbstractPaginator::defaultView("pagination::bootstrap-4");

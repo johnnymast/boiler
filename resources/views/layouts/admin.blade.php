@@ -18,7 +18,8 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -31,7 +32,8 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,10 +57,17 @@
         <div class="col-md-4">
 
             <div class="card" style="width: 20rem;">
-                <ul class="list-group list-group-flush">
-                    @if ($sidemenu)
-                        @foreach ($sidemenu as $item)
-                            <li class="list-group-item"><a  href="{{url($item['url'])}}" title="{{$item['title']}}">{{$item['title']}}</a></li>
+                <ul class="list-group list-group-flush sidemenu">
+                    @if ($sidemenus)
+                        @foreach($sidemenus as $menu)
+                            @foreach ($menu->getItems() as $item)
+                                <li class="list-group-item">
+                                    <a
+                                            @if ($item->isActive()) class="active" @endif
+                                            href="{{ $item->getUrl() }}"
+                                            title="{{ $item->getTitle() }}"
+                                    >{{ $item->getTitle() }}</a></li>
+                            @endforeach
                         @endforeach
                     @endif
                 </ul>
