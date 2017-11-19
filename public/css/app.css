@@ -12782,3 +12782,7 @@ a.text-dark:hover {
   color: #000000;
 }
 
+.tab-pane {
+  padding-top: 20px;
+}
+
